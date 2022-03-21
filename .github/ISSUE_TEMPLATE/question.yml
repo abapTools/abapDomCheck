@@ -1,0 +1,14 @@
+name: "❓ Question"
+description: You have a question
+title: "[Question]: "
+labels: ["question"]
+assignees:
+  - preinboth
+body:
+  - type: textarea
+    id: question-description
+    attributes:
+      label: What is the question?
+      description: 
+    validations:
+      required: true

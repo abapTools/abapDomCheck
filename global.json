@@ -1,0 +1,95 @@
+{
+    "docs_directory": "docs",
+    "themes_directory": "themes",
+
+    "title": "abap Template",
+    "tagline": "The Easiest Way To abap github project",
+    "author": "preinboth",
+    "image": "",
+    "languages": {},
+
+    "cache": true,
+
+    "format": "html",
+    "processor": "",
+
+    "ignore": {
+        "files": [],
+        "folders": []
+    },
+
+    "language": "en",
+
+    "strings": {
+        "en": {
+            "CodeBlocks_show": "Show Code Blocks",
+            "Search_placeholder": "Search...",
+            "Search_one_result": "1 result",
+            "Search_results": "!count results",
+            "Search_no_results": "Nothing found",
+            "Search_common_words_ignored": "Common words are largely ignored",
+            "Search_too_short": "Search too short",
+            "Search_one_character_or_more": "Should be one character or more",
+            "Search_should_be_x_or_more": "Should be !min characters or more",
+            "Link_previous": "Previous",
+            "Link_next": "Next",
+            "Edit_on": "Edit on :name:",
+            "View_on_github": "View On GitHub",
+            "View_documentation": "View Documentation",
+            "Table_of_contents": "Table of Contents",
+            "Toggle_navigation": "Toggle navigation"
+        },
+        "de": {
+            "CodeBlocks_show": "Code-Bloecke anzeigen",
+            "Search_placeholder": "Suchen...",
+            "Search_one_result": "1 Ergebnis",
+            "Search_results": "!count Ergebnisse",
+            "Search_no_results": "Nichts gefunden",
+            "Search_common_words_ignored": "Allgemeine Woerter werden weitgehend ignoriert",
+            "Search_too_short": "Suche zu kurz",
+            "Search_one_character_or_more": "Sollte ein Zeichen oder mehr sein",
+            "Search_should_be_x_or_more": "Sollte !min Zeichen oder mehr sein",
+            "Link_previous": "Zurueck",
+            "Link_next": "Weiter",
+            "Edit_on": "Bearbeiten bei :name:",
+            "View_on_github": "Bei GitHub anzeigen",
+            "View_documentation": "Dokumentation anzeigen",
+            "Table_of_contents": "Inhaltsverzeichnis"
+        }
+
+    },
+
+    "timezone": "Europe/Berlin",
+
+    "live": {
+        "clean_urls": true
+    },
+
+    "html": {
+        "theme": "daux-red",
+        "breadcrumbs": true,
+		"breadcrumb_separator": "Chevrons",
+        "toggle_code": true,
+        "date_modified": false,
+        "auto_landing": true,
+        "search": true,
+        "auto_toc": false,
+        "inherit_index": true,
+        "jump_buttons": true,
+
+        "repo": "preinboth/abapTmpl",
+        "twitter": [],
+        "links": {
+            "GitHub Repo": "https://github.com/preinboth/abapTmpl",
+            "Help/Support/Bugs": "https://github.com/preinboth/abapTmpl/issues"
+        },
+        "buttons": {
+        },
+
+        "google_analytics": false,
+        "piwik_analytics": false,
+        "piwik_analytics_id": "0"
+    }
+
+
+}
