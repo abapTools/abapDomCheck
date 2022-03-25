@@ -1,8 +1,5 @@
 ![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)
 ![ABAP Version](https://img.shields.io/badge/ABAP%20-7.50-brightgreen)
-![GitHub issues](https://img.shields.io/github/issues/abapTools/abapDomCheck)
-![abapLint Workflow Status](https://img.shields.io/github/workflow/status/abapTools/abapDomCheck/abaplint?label=abaplint)
-
 
 
 ## abapDomCheck
