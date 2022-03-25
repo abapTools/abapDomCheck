@@ -7,3 +7,14 @@ SAP only check data against the domain fixed values and check tables in the GUI.
 
 
 
+```abap
+data type ref to zcl_dom_check.
+lo_object = zcl_dom_check=>get_instance( ).
+
+data(rejected) = lo_object->check_fix_values_struc( ls_dataset ).
+
+if rejected eq abap_true.
+	data(lt_msg) = lo_object->get_msg().
+endif.
+
+```
