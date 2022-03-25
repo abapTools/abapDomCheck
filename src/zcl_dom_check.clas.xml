@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_DOM_CHECK</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>check value by domain value</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <WITH_UNIT_TESTS>X</WITH_UNIT_TESTS>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOM_CHECK</CLSNAME>
+     <CMPNAME>CHECK_CHECKTABLE_VALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>check checktable</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOM_CHECK</CLSNAME>
+     <CMPNAME>CHECK_DOM_FIX_VALUES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check data set against domain fixed values</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOM_CHECK</CLSNAME>
+     <CMPNAME>CHECK_FIX_VALUES_STRUC</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check data set against domain fixed values</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOM_CHECK</CLSNAME>
+     <CMPNAME>CHECK_INTERVAL_VALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Interval check</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOM_CHECK</CLSNAME>
+     <CMPNAME>CHECK_SINGLE_VALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Single value check</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOM_CHECK</CLSNAME>
+     <CMPNAME>CLASS_CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Class constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOM_CHECK</CLSNAME>
+     <CMPNAME>EXPLODE_STRUCTURE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>explode the structure</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOM_CHECK</CLSNAME>
+     <CMPNAME>GET_DOM_FIX_VALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Read domains Fixed values for a structure</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOM_CHECK</CLSNAME>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get instance for this object</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOM_CHECK</CLSNAME>
+     <CMPNAME>GET_MSG</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get all messages</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOM_CHECK</CLSNAME>
+     <CMPNAME>O_INSTANCE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>instance for this object</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOM_CHECK</CLSNAME>
+     <CMPNAME>READ_FIXVALUES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>read fixed values of domain</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOM_CHECK</CLSNAME>
+     <CMPNAME>TTY_FIXVALUES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>fixed values of domain</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOM_CHECK</CLSNAME>
+     <CMPNAME>TY_FIXVALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>fixed value of domain</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOM_CHECK</CLSNAME>
+     <CMPNAME>T_BAL_MSG</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Table of Messages</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOM_CHECK</CLSNAME>
+     <CMPNAME>T_FIXVALUES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>fixed values of domain</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
