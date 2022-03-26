@@ -48,7 +48,18 @@ CLASS ltcl_dom_check DEFINITION FINAL FOR TESTING
 
       "! <p class="shorttext synchronized" lang="en">check checktable forbidden</p>
       check_checktable_forbidden FOR TESTING
-        RAISING cx_static_check.
+        RAISING cx_static_check,
+
+      "! <p class="shorttext synchronized" lang="en">get single dataset</p>
+      "! get dataset by count numc
+      "! @parameter im_count      | count numc
+      "!
+      "! @parameter r_result      | Returns dataset
+      get_dataset
+        IMPORTING
+          im_count        TYPE numc2
+        RETURNING
+          VALUE(r_result) TYPE zdom_fix_test.
 
 ENDCLASS.
 
@@ -56,15 +67,9 @@ ENDCLASS.
 CLASS ltcl_dom_check IMPLEMENTATION.
 
   METHOD class_Setup.
+
     " Preparing Test data
-
-
-
     Preparing_Test_data( ).
-
-
-
-
 
   ENDMETHOD.
 
@@ -85,27 +90,26 @@ CLASS ltcl_dom_check IMPLEMENTATION.
 
   METHOD check_single_value_allowed.
 
-    READ TABLE t_dom_check_data ASSIGNING FIELD-SYMBOL(<dataset>) WITH KEY zcount = 01.
+    DATA(dataset) = get_dataset( '01' ).
 
     "Assert
     cl_abap_unit_assert=>assert_equals(
       exp   = abap_false
-      act   = mo_cut->check_fix_values_struc( <dataset> )
+      act   = mo_cut->check_fix_values_struc( dataset )
       msg   = 'Single value allowed'
       level = if_aunit_constants=>critical
       quit  = if_aunit_constants=>no ).
-
 
   ENDMETHOD.
 
   METHOD check_single_value_forbidden.
 
-    READ TABLE t_dom_check_data ASSIGNING FIELD-SYMBOL(<dataset>) WITH KEY zcount = 02.
+    DATA(dataset) = get_dataset( '02' ).
 
     "Assert
     cl_abap_unit_assert=>assert_equals(
       exp   = abap_true
-      act   = mo_cut->check_fix_values_struc( <dataset> )
+      act   = mo_cut->check_fix_values_struc( dataset )
       msg   = 'Single value forbidden'
       level = if_aunit_constants=>critical
       quit  = if_aunit_constants=>no ).
@@ -115,12 +119,12 @@ CLASS ltcl_dom_check IMPLEMENTATION.
 
   METHOD check_interval_value_allowed.
 
-    READ TABLE t_dom_check_data ASSIGNING FIELD-SYMBOL(<dataset>) WITH KEY zcount = 03.
+    DATA(dataset) = get_dataset( '03' ).
 
     "Assert
     cl_abap_unit_assert=>assert_equals(
       exp   = abap_false
-      act   = mo_cut->check_fix_values_struc( <dataset> )
+      act   = mo_cut->check_fix_values_struc( dataset )
       msg   = 'interval value allowed'
       level = if_aunit_constants=>critical
       quit  = if_aunit_constants=>no ).
@@ -129,12 +133,12 @@ CLASS ltcl_dom_check IMPLEMENTATION.
 
   METHOD check_interval_value_forbidden.
 
-    READ TABLE t_dom_check_data ASSIGNING FIELD-SYMBOL(<dataset>) WITH KEY zcount = 04.
+    DATA(dataset) = get_dataset( '04' ).
 
     "Assert
     cl_abap_unit_assert=>assert_equals(
       exp   = abap_true
-      act   = mo_cut->check_fix_values_struc( <dataset> )
+      act   = mo_cut->check_fix_values_struc( dataset )
       msg   = 'interval value forbidden'
       level = if_aunit_constants=>critical
       quit  = if_aunit_constants=>no ).
@@ -143,12 +147,12 @@ CLASS ltcl_dom_check IMPLEMENTATION.
 
   METHOD check_checktable_allowed.
 
-    READ TABLE t_dom_check_data ASSIGNING FIELD-SYMBOL(<dataset>) WITH KEY zcount = 05.
+    DATA(dataset) = get_dataset( '05' ).
 
     "Assert
     cl_abap_unit_assert=>assert_equals(
       exp   = abap_false
-      act   = mo_cut->check_fix_values_struc( <dataset> )
+      act   = mo_cut->check_fix_values_struc( dataset )
       msg   = 'chacktable value allowed'
       level = if_aunit_constants=>critical
       quit  = if_aunit_constants=>no ).
@@ -157,12 +161,13 @@ CLASS ltcl_dom_check IMPLEMENTATION.
 
   METHOD check_checktable_forbidden.
 
-    READ TABLE t_dom_check_data ASSIGNING FIELD-SYMBOL(<dataset>) WITH KEY zcount = 06.
+
+    DATA(dataset) = get_dataset( '06' ).
 
     "Assert
     cl_abap_unit_assert=>assert_equals(
       exp   = abap_true
-      act   = mo_cut->check_fix_values_struc( <dataset> )
+      act   = mo_cut->check_fix_values_struc( dataset )
       msg   = 'checktable value forbidden'
       level = if_aunit_constants=>critical
       quit  = if_aunit_constants=>no ).
@@ -217,6 +222,13 @@ CLASS ltcl_dom_check IMPLEMENTATION.
     <test_data>-zcount = 06.
     <test_data>-dom_fix_01 = 'A'.
     <test_data>-dom_fix_02 = 'P'.
+
+  ENDMETHOD.
+
+
+  METHOD get_dataset.
+
+    READ TABLE t_dom_check_data INTO r_result WITH KEY zcount = im_count.
 
   ENDMETHOD.
 

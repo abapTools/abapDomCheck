@@ -5,7 +5,7 @@
    <VSEOCLASS>
     <CLSNAME>ZCL_DOM_CHECK</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>check value by domain value</DESCRIPT>
+    <DESCRIPT>check value by domain values</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
@@ -78,6 +78,12 @@
      <CMPNAME>O_INSTANCE</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>instance for this object</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_DOM_CHECK</CLSNAME>
+     <CMPNAME>READ_CHECKTABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>read checktable for domain</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZCL_DOM_CHECK</CLSNAME>

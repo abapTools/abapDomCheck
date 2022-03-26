@@ -12,6 +12,12 @@
      <SPRSL>E</SPRSL>
      <ARBGB>ZDOM_CHECK</ARBGB>
      <MSGNR>001</MSGNR>
+     <TEXT>&amp; &amp; &amp; &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZDOM_CHECK</ARBGB>
+     <MSGNR>002</MSGNR>
      <TEXT>The value &amp;1 is not permitted for field &amp;2.</TEXT>
     </T100>
    </T100>
