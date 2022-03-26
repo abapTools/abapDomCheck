@@ -176,7 +176,7 @@ CLASS ltcl_dom_check IMPLEMENTATION.
 
 
   METHOD preparing_test_data.
-*BREAK-POINT.
+
     FIELD-SYMBOLS <test_data> TYPE zdom_fix_test .
 
     CLEAR: t_dom_check_data.
