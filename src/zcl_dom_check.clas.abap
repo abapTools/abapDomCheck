@@ -170,9 +170,10 @@ CLASS zcl_dom_check IMPLEMENTATION.
 
     READ TABLE im_fixvalues ASSIGNING FIELD-SYMBOL(<fixvalue>) WITH KEY rollname = lo_elem->absolute_name+6.
     CHECK <fixvalue> IS ASSIGNED.
+    CHECK NOT <fixvalue>-checktable IS INITIAL.
 *----------------------------------------------------------------------*
     TRY.
-        " Besorgen der Details zur DDIC-Tabelle
+        " Get the DDIC table details
         lo_structdescr ?= cl_abap_elemdescr=>describe_by_name( <fixvalue>-checktable ).
       CATCH cx_sy_move_cast_error.
         MESSAGE 'Fehler while casting'(s01) TYPE 'S'.
@@ -194,13 +195,10 @@ CLASS zcl_dom_check IMPLEMENTATION.
       CONCATENATE '''' im_dataset '''' INTO lv_where.
       CONCATENATE <tab_key>-fieldname '=' lv_where INTO lv_where SEPARATED BY space.
 
-      " Auf das gefundene Key-Feld den aktuellen/Ã¼bergebenen Wert gegenprÃ¼fen
+      " Cross-check the current value passed to the key field found.
       SELECT COUNT(*) FROM (<fixvalue>-checktable) WHERE (lv_where).
       IF sy-dbcnt EQ 0.
-        " kein Treffer in der Wertetabelle --> Wert ist nicht zugelassen
-*        me->msg_add( im_fieldname = im_fieldname
-*                     im_wert      = im_dataset
-*                     im_syst      =  syst ).
+            rv_rejected = abap_true.
       ENDIF.
     ENDIF.
 
@@ -287,11 +285,9 @@ CLASS zcl_dom_check IMPLEMENTATION.
 
     READ TABLE im_fixvalues ASSIGNING FIELD-SYMBOL(<fixvalue>) WITH KEY rollname = lo_elem->absolute_name+6.
     IF sy-subrc EQ 0.
-      LOOP AT <fixvalue>-ddfixvalues ASSIGNING FIELD-SYMBOL(<ddfixvalue>) WHERE option = 'BT'.
+      LOOP AT <fixvalue>-ddfixvalues ASSIGNING FIELD-SYMBOL(<ddfixvalue>) WHERE option = 'EQ'.
 
         IF <ddfixvalue>-low NE im_dataset.
-          " Treffer -> Wert ist zugelassen, keine weitere Prüfung notwendig.
-          " Hit -> value is permitted, no further check necessary.
           rv_rejected = abap_true.
         ELSE.
           rv_rejected = abap_false.
