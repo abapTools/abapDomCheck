@@ -56,11 +56,11 @@ ENDCLASS.
 CLASS ltcl_dom_check IMPLEMENTATION.
 
   METHOD class_Setup.
- " Preparing Test data
+    " Preparing Test data
 
 
 
-    Preparing_Test_data(  ).
+    Preparing_Test_data( ).
 
 
 
@@ -85,9 +85,9 @@ CLASS ltcl_dom_check IMPLEMENTATION.
 
   METHOD check_single_value_allowed.
 
-    READ TABLE t_dom_check_data ASSIGNING FIELD-SYMBOL(<dataset>) with key zcount = 01.
+    READ TABLE t_dom_check_data ASSIGNING FIELD-SYMBOL(<dataset>) WITH KEY zcount = 01.
 
-      "Assert
+    "Assert
     cl_abap_unit_assert=>assert_equals(
       exp   = abap_false
       act   = mo_cut->check_fix_values_struc( <dataset> )
@@ -100,11 +100,11 @@ CLASS ltcl_dom_check IMPLEMENTATION.
 
   METHOD check_single_value_forbidden.
 
-    READ TABLE t_dom_check_data ASSIGNING FIELD-SYMBOL(<dataset>) with key zcount = 02.
+    READ TABLE t_dom_check_data ASSIGNING FIELD-SYMBOL(<dataset>) WITH KEY zcount = 02.
 
-      "Assert
+    "Assert
     cl_abap_unit_assert=>assert_equals(
-      exp   = abap_false
+      exp   = abap_true
       act   = mo_cut->check_fix_values_struc( <dataset> )
       msg   = 'Single value forbidden'
       level = if_aunit_constants=>critical
@@ -115,13 +115,13 @@ CLASS ltcl_dom_check IMPLEMENTATION.
 
   METHOD check_interval_value_allowed.
 
-    READ TABLE t_dom_check_data ASSIGNING FIELD-SYMBOL(<dataset>) with key zcount = 03.
+    READ TABLE t_dom_check_data ASSIGNING FIELD-SYMBOL(<dataset>) WITH KEY zcount = 03.
 
-      "Assert
+    "Assert
     cl_abap_unit_assert=>assert_equals(
       exp   = abap_false
       act   = mo_cut->check_fix_values_struc( <dataset> )
-      msg   = 'Single interval allowed'
+      msg   = 'interval value allowed'
       level = if_aunit_constants=>critical
       quit  = if_aunit_constants=>no ).
 
@@ -129,13 +129,13 @@ CLASS ltcl_dom_check IMPLEMENTATION.
 
   METHOD check_interval_value_forbidden.
 
-    READ TABLE t_dom_check_data ASSIGNING FIELD-SYMBOL(<dataset>) with key zcount = 04.
+    READ TABLE t_dom_check_data ASSIGNING FIELD-SYMBOL(<dataset>) WITH KEY zcount = 04.
 
-      "Assert
+    "Assert
     cl_abap_unit_assert=>assert_equals(
-      exp   = abap_false
+      exp   = abap_true
       act   = mo_cut->check_fix_values_struc( <dataset> )
-      msg   = 'Single interval forbidden'
+      msg   = 'interval value forbidden'
       level = if_aunit_constants=>critical
       quit  = if_aunit_constants=>no ).
 
@@ -143,13 +143,13 @@ CLASS ltcl_dom_check IMPLEMENTATION.
 
   METHOD check_checktable_allowed.
 
-    READ TABLE t_dom_check_data ASSIGNING FIELD-SYMBOL(<dataset>) with key zcount = 05.
+    READ TABLE t_dom_check_data ASSIGNING FIELD-SYMBOL(<dataset>) WITH KEY zcount = 05.
 
-      "Assert
+    "Assert
     cl_abap_unit_assert=>assert_equals(
       exp   = abap_false
       act   = mo_cut->check_fix_values_struc( <dataset> )
-      msg   = 'Single chacktable allowed'
+      msg   = 'chacktable value allowed'
       level = if_aunit_constants=>critical
       quit  = if_aunit_constants=>no ).
 
@@ -157,13 +157,13 @@ CLASS ltcl_dom_check IMPLEMENTATION.
 
   METHOD check_checktable_forbidden.
 
-    READ TABLE t_dom_check_data ASSIGNING FIELD-SYMBOL(<dataset>) with key zcount = 06.
+    READ TABLE t_dom_check_data ASSIGNING FIELD-SYMBOL(<dataset>) WITH KEY zcount = 06.
 
-      "Assert
+    "Assert
     cl_abap_unit_assert=>assert_equals(
-      exp   = abap_false
+      exp   = abap_true
       act   = mo_cut->check_fix_values_struc( <dataset> )
-      msg   = 'Single checktable forbidden'
+      msg   = 'checktable value forbidden'
       level = if_aunit_constants=>critical
       quit  = if_aunit_constants=>no ).
 
@@ -178,38 +178,45 @@ CLASS ltcl_dom_check IMPLEMENTATION.
 *----------------------------------------------------------------------*
     "               << Preparing Test data >>
 
-     " test data for single value allowed
+    " test data for single value allowed
     APPEND INITIAL LINE TO t_dom_check_data ASSIGNING <test_data>.
     <test_data>-mandt  = sy-mandt.
     <test_data>-zcount = 01.
     <test_data>-dom_fix_01 = 'A'.
 
 
-     " test data for single value forbidden
+    " test data for single value forbidden
     APPEND INITIAL LINE TO t_dom_check_data ASSIGNING <test_data>.
     <test_data>-mandt  = sy-mandt.
     <test_data>-zcount = 02.
     <test_data>-dom_fix_01 = 'B'.
 
-         " test data for interval value allowed
+    " test data for interval value allowed
     APPEND INITIAL LINE TO t_dom_check_data ASSIGNING <test_data>.
     <test_data>-mandt  = sy-mandt.
     <test_data>-zcount = 03.
+    <test_data>-dom_fix_01 = 'A'.
+    <test_data>-dom_fix_02 = 'P'.
 
-         " test data for interval value forbidden
+    " test data for interval value forbidden
     APPEND INITIAL LINE TO t_dom_check_data ASSIGNING <test_data>.
     <test_data>-mandt  = sy-mandt.
     <test_data>-zcount = 04.
+    <test_data>-dom_fix_02 = 'M'.
 
     " test data for check table allowed
     APPEND INITIAL LINE TO t_dom_check_data ASSIGNING <test_data>.
     <test_data>-mandt  = sy-mandt.
     <test_data>-zcount = 05.
+    <test_data>-dom_fix_01 = 'A'.
+    <test_data>-dom_fix_02 = 'P'.
 
     " test data for check table forbidden
     APPEND INITIAL LINE TO t_dom_check_data ASSIGNING <test_data>.
     <test_data>-mandt  = '999'.
     <test_data>-zcount = 06.
+    <test_data>-dom_fix_01 = 'A'.
+    <test_data>-dom_fix_02 = 'P'.
 
   ENDMETHOD.
 
