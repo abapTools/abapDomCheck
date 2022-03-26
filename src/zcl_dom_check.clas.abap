@@ -1,4 +1,4 @@
-"! <p class="shorttext synchronized" lang="en">check value by domain value</p>
+"! <p class="shorttext synchronized" lang="en">check value by domain values</p>
 CLASS zcl_dom_check DEFINITION
   PUBLIC
   FINAL
@@ -37,7 +37,6 @@ CLASS zcl_dom_check DEFINITION
 
   PROTECTED SECTION.
   PRIVATE SECTION.
-
     TYPES:
       "! <p class="shorttext synchronized" lang="en">fixed value of domain</p>
       BEGIN OF ty_fixvalue,
@@ -145,6 +144,12 @@ CLASS zcl_dom_check DEFINITION
         im_domname      TYPE dfies-domname
       RETURNING
         VALUE(r_result) TYPE ddfixvalues.
+
+    "! <p class="shorttext synchronized" lang="en">read checktable for domain</p>
+    "!
+    "! @parameter im_domname     | nae of domain
+    "!
+    "! @parameter r_result      | name of checktable
     METHODS read_checktable
       IMPORTING
         im_domname      TYPE dfies-domname
@@ -239,7 +244,7 @@ CLASS zcl_dom_check IMPLEMENTATION.
         OR ( rejected_interval_value    EQ abap_true )
         OR ( rejected_checktable_value  EQ abap_true ).
         msg_add_check( im_fieldname  = <comp>-name
-                 im_fieldvalue = im_dataset ).
+                       im_fieldvalue = im_dataset ).
         rv_rejected = abap_true.
       ENDIF.
     ENDLOOP.
@@ -349,7 +354,6 @@ CLASS zcl_dom_check IMPLEMENTATION.
       ls_ddfixvalue-rollname    = <dfies>-rollname.
       ls_ddfixvalue-domname     = <dfies>-domname.
       ls_ddfixvalue-position    = <dfies>-position.
-*      ls_ddfixvalue-checktable  = <dfies>-checktable.
       ls_ddfixvalue-checktable  = read_checktable( <dfies>-domname ).
       ls_ddfixvalue-ddfixvalues = read_fixvalues( <dfies>-domname ).
       INSERT ls_ddfixvalue INTO TABLE t_fixvalues.
@@ -423,7 +427,7 @@ CLASS zcl_dom_check IMPLEMENTATION.
     ENDLOOP.
 *----------------------------------------------------------------------*
 
-    IF NOT   ( lt_fixvalues IS INITIAL ) .
+    IF NOT ( lt_fixvalues IS INITIAL ) .
       r_result = lt_fixvalues.
     ENDIF.
 
@@ -443,9 +447,9 @@ CLASS zcl_dom_check IMPLEMENTATION.
 
     APPEND INITIAL LINE TO t_bal_msg ASSIGNING FIELD-SYMBOL(<msg>).
 
-    <msg>-msgty    = 'W'.
+    <msg>-msgty    = 'E'.
     <msg>-msgid    = 'ZDOM_CHECK'.
-    <msg>-msgno    = 001.
+    <msg>-msgno    = 002.
     <msg>-msgv1    = im_fieldvalue.
     <msg>-msgv2    = im_fieldname.
 
